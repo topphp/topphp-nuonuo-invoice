@@ -105,6 +105,29 @@ class ExampleTest extends TestCase
     }
 
     /**
+     * @author sleep
+     * nuonuo.ElectronInvoice.queryInvoiceResult
+     */
+    public function testProdQueryInvoiceResult()
+    {
+        $res = NuoNuo::instance()
+            ->setEnv('prod')
+            ->setAppKey("15125971")
+            ->setAppSecret("FB354602BB0B48D0")
+            ->sendPostSyncRequest(
+                md5(uniqid()),
+                '8001a531020bc360ebdb7b0nktvjmkts',
+                '',
+                'nuonuo.ElectronInvoice.queryInvoiceResult',
+                json_encode([
+                    'serialNos'            => ['01200190010407781284'],
+                    'isOfferInvoiceDetail' => '1',
+                ])
+            );
+        var_dump(json_decode($res, true));
+    }
+
+    /**
      * 发票列表查询
      * @author sleep
      */
