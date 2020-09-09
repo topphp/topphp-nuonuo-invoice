@@ -61,7 +61,7 @@ class Utils
      * @return bool|string
      * @throws NuonuoException
      */
-    public static function postCurl($url, $params, $headers = [], $second = 30)
+    public static function postCurl(string $url, $params, $headers = [], $second = 100)
     {
         $ch          = curl_init();
         $curlVersion = curl_version();
